@@ -17,13 +17,13 @@ namespace FitnessTrackerV1.Controllers
         }
 
         [Authorize]
-        public ActionResult Routine(string emailAddress)
+        public ActionResult ActiveRoutines(string emailAddress)
         {
             FitnessTrackerDa da = new FitnessTrackerDa();
             List<Routine> routines = new List<Routine>();
-            routines = da.FindRoutines(emailAddress);
+            routines = da.FindActiveRoutines(emailAddress);
 
-            return View(routines);
+            return View("Routine", routines);
         }
     }
 }
