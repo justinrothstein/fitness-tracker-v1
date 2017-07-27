@@ -1,0 +1,169 @@
+﻿@model FitnessTrackerV1.Models.Register
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+    Register
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <style type="text/css">
+        .btnStyle {
+            border: thin solid #000000;
+            line-height: normal;
+            width: 80px;
+        }
+    </style>
+
+    @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+    {
+    <div>
+        <table style="margin-left: 350px" align="center">
+            <tr>
+                <td>
+                    <table style="font-family: Calibri">
+                        <tr style="height: 80px">
+                            <td colspan="2" align="center">
+                                <asp:Label ID="lblBanner" runat="server" Text="Register
+                             New Account" Font-Names="Consolas" Font-Size="Larger" Font-
+                                           Underline="True"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 200px">
+                                @Html.LabelFor(m => m.FirstName) 
+                            </td>
+                            <td style="width: 150px">
+                                @Html.TextBoxFor(m => m.FirstName) 
+                            </td>
+                            <td style="width: 200px; color: Red" align="left">
+                                @Html.ValidationMessageFor(m => m.FirstName) 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(m => m.LastName) 
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.LastName) 
+                            </td>
+                            <td style="color: Red">
+                                @Html.ValidationMessageFor(m => m.LastName) 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(m => m.EmailAddress) 
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.EmailAddress) 
+                            </td>
+                            <td style="color: Red">
+                                @Html.ValidationMessageFor(m => m.EmailAddress) 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(m => m.Password) 
+                            </td>
+                            <td>
+                                @Html.PasswordFor(m => m.Password) 
+                            </td>
+                            <td style="color: Red">
+                                @Html.ValidationMessageFor(m => m.Password) 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(m => m.ConfirmPassword) 
+                            </td>
+                            <td>
+                                @Html.PasswordFor(m => m.ConfirmPassword) 
+                            </td>
+                            <td style="color: Red">
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword) 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(m => m.StreetAddress) 
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.StreetAddress) 
+                            </td>
+                            <td style="color: Red">
+                                @Html.ValidationMessageFor(m => m.StreetAddress) 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(m => m.City)
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.City) 
+                            </td>
+                            <td style="color: Red">
+                                @Html.ValidationMessageFor(m => m.City) 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(m => m.State) 
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.State) 
+                            </td>
+                            <td style="color: Red">
+                                @Html.ValidationMessageFor(m => m.State) 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(m => m.ZipCode) 
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.ZipCode) 
+                            </td>
+                            <td style="color: Red">
+                                @Html.ValidationMessageFor(m => m.ZipCode) 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="image" id="image" src="@Url.Action("Image","Home")" alt="Click to Refresh" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(m => m.Captcha) 
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.Captcha)
+                            </td>
+                            <td style="color: Red">
+                                @Html.ValidationMessageFor(m => m.Captcha) 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="submit" value="Register" class="btnStyle" />
+                                <input type="button" value="Cancel" onclick="return Cancel()" class="btnStyle" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="color: Red" align="right">
+                                @Html.ValidationSummary(true) 
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    } 
+</asp:Content>
+
+
+

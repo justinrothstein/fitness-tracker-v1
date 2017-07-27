@@ -1,0 +1,50 @@
+﻿@using System.Web.Script.Services
+@model FitnessTrackerV1.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FitnessTracker</title>
+    <link rel="stylesheet" href="~/scripts/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-1">
+                        <div class="btn btn-default navbar-btn">@Html.ActionLink("Home", "Index", "UserPage", Model, null)</div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="btn btn-default navbar-btn">@Html.ActionLink("Fitness", "Routine", "UserPage", Model.EmailAddress, null)</div>
+                    </div>
+
+                    <div class="col-md-9"></div>
+                    <div class="col-md-1">
+                        <div class="btn btn-default navbar-btn">@Html.ActionLink("Log Out", "LogOn", "Home")</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Welcome <b>@Html.DisplayFor(m => m.FirstName)</b>, this is your fitness page.</h4>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div>@RenderBody()</div>
+        <div class="panel-footer" id="footer">
+            <b>&copy; FitnessTracker.</b> All rights reserved.
+        </div>
+
+    </div>
+</body>
+</html>

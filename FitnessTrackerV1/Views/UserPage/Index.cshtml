@@ -1,0 +1,19 @@
+﻿@model FitnessTrackerV1.Models.User
+
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <div>
+        This is the actual home page.
+        @Html.Action("Routine", "UserPage", new {emailAddress = Model.EmailAddress})
+    </div>
+</body>
+</html>

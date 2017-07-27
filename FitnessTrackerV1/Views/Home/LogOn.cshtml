@@ -1,0 +1,58 @@
+﻿@model FitnessTrackerV1.Models.Login
+
+@{
+    ViewBag.Title = "LogOn";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+    <style type="text/css">
+        .btnStyle {
+            border: thin solid #000000;
+            line-height: normal;
+            width: 80px;
+        }
+    </style>
+    @using (Html.BeginForm("LogOn", "Home", FormMethod.Post))
+    { 
+    <div class="fontStyle">
+        <center>
+            <table style="margin-top: 100px;margin-left:150px">
+                <tr style="height:30px">
+                    <td align="right">
+                        @Html.LabelFor(m => m.EmailAddress)
+                    </td>
+                    <td style="width:200px" align="right">
+                        @Html.TextBoxFor(m => m.EmailAddress)
+                    </td>
+                    <td style="width:250px;color:Red" align="left">
+                        @Html.ValidationMessageFor(m => m.EmailAddress)
+                    </td>
+                </tr>
+                <tr style="height:30px">
+                    <td align="right">
+                        @Html.LabelFor(m => m.Password) 
+                    </td>
+                    <td align="right">
+                        @Html.PasswordFor(m => m.Password)
+                    </td>
+                    <td style="width:250px;color:Red" align="left">
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </td>
+                </tr>
+                <tr style="height:30px">
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Sign In" class="btnStyle" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="color:Red;" align="left">
+                        @Html.ValidationSummary(true)
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </div>
+    } 
+
+
+
