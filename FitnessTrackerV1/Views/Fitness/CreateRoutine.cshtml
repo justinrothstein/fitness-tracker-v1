@@ -1,0 +1,65 @@
+﻿@using FitnessTrackerV1.Models
+@model FitnessTrackerV1.Models.Routine
+
+@{
+    Layout =  "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+<div>
+    @using (Html.BeginForm("CreateRoutine", "Fitness", FormMethod.Post))
+    {
+        <table style="margin-top: 100px;margin-left:150px">
+            <tr style="height:30px">
+                <td align="right">
+                    @Html.LabelFor(m => m.RoutineName)
+                </td>
+                <td style="width:200px" align="right">
+                    @Html.TextBoxFor(m => m.RoutineName)
+                </td>
+                <td style="width:250px;color:Red" align="left">
+                    @Html.ValidationMessageFor(m => m.RoutineName)
+                </td>
+            </tr>
+            <tr style="height:30px">
+                <td align="right">
+                    @Html.LabelFor(m => m.RoutineGoal)
+                </td>
+                <td align="right">
+                    @Html.TextBoxFor(m => m.RoutineGoal)
+                </td>
+                <td style="width:250px;color:Red" align="left">
+                    @Html.ValidationMessageFor(m => m.RoutineGoal)
+                </td>
+            </tr>
+            <tr style="height:30px">
+                <td align="right">
+                    @Html.LabelFor(m => m.IsActive)
+                </td>
+                <td align="right">
+                    @Html.CheckBoxFor(m => m.IsActive)
+                    
+                </td>
+            </tr>
+            <tr style="height:30px">
+                <td colspan="2" align="center">
+                    <input type="submit" value="Sign In" class="btnStyle" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="color:Red;" align="left">
+                    @Html.ValidationSummary(true)
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+</body>
+</html>

@@ -11,9 +11,11 @@ namespace FitnessTrackerV1.Controllers
     public class UserPageController : Controller
     {
         [Authorize]
-        public ActionResult Index(User model)
+        public ActionResult Index(string emailAddress, string firstName)
         {
-            return View(model);
+            ViewBag.Username = emailAddress;
+            ViewBag.Firstname = firstName;
+            return View();
         }
 
         [Authorize]
@@ -23,7 +25,7 @@ namespace FitnessTrackerV1.Controllers
             List<Routine> routines = new List<Routine>();
             routines = da.FindActiveRoutines(emailAddress);
 
-            return View("Routine", routines);
+            return View("_ActiveRoutines", routines);
         }
     }
 }

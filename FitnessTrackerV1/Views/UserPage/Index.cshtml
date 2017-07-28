@@ -13,7 +13,38 @@
 <body>
     <div>
         This is the actual home page.
-        @Html.Action("ActiveRoutines", "UserPage", new {emailAddress = Model.EmailAddress})
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="row">
+                        <div class="btn btn-default navbar-btn">@Html.ActionLink("Create a New Routine", "CreateRoutine", "Fitness", new
+                                                           {
+                                                               emailAddress = ViewBag.Username,
+                                                               firstName = ViewBag.Firstname
+                                                           } , null)</div>
+                    </div>
+                    <div class="row">
+                        This is where you can go to create your
+                        own fitness plan. Setup a schedule with
+                        a workout plan!
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="row">
+                        <div class="btn btn-default navbar-btn">@Html.ActionLink("Manage Routines", "Index", "UserPage", new
+                                                           {
+                                                               emailAddress = (string)ViewBag.Username,
+                                                               firstName =(string) ViewBag.Firstname
+                                                            } , null)</div>
+                    </div>
+                    <div class="row">
+                        This is where you can go to manage your current Routines.
+                         View and Edit your routines!
+                    </div>
+                </div>
+                <div class="col-lg-6">@Html.Action("ActiveRoutines", "UserPage", new { emailAddress = ViewBag.Username })</div>              
+            </div>
+        </div>
     </div>
 </body>
 </html>

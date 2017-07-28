@@ -43,7 +43,11 @@ namespace FitnessTrackerV1.Controllers
             userModel.EmailAddress = model.EmailAddress;
             userModel.SetNames();
 
-            return RedirectToAction("Index", "UserPage", userModel);
+            return RedirectToAction("Index", "UserPage", new
+            {
+                emailAddress = userModel.EmailAddress,
+                firstName = userModel.FirstName
+            });
         }
 
         [HttpPost, ValidateInput(false)]
